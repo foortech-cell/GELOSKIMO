@@ -98,6 +98,12 @@
     scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 0.3 },
   });
 
+  gsap.to(".hero__scroll", {
+    opacity: 0,
+    ease: "none",
+    scrollTrigger: { trigger: ".hero", start: "top top", end: "180px top", scrub: true },
+  });
+
   /* ------------------------------------------------------------------
      NAVBAR SHOW/HIDE + BACKGROUND ON SCROLL
   ------------------------------------------------------------------ */
