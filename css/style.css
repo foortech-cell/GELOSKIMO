@@ -37,15 +37,20 @@
 html{
   scroll-behavior: auto;
   background: var(--bg);
+  overflow-x: hidden;
+  width: 100%;
 }
 body{
   margin:0;
+  padding:0;
   background: var(--bg);
   color: var(--white);
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.5;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 img{ max-width:100%; display:block; }
@@ -54,6 +59,21 @@ button{ font-family:inherit; cursor:pointer; }
 h1,h2,h3,h4{ font-family: var(--font-display); margin:0; font-weight:600; }
 p{ margin:0; }
 ::selection{ background: var(--red); color:#fff; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #07070d;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(141, 215, 247, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ice);
+}
 
 /* grain overlay for premium texture */
 body::before{
@@ -503,21 +523,61 @@ body::before{
    CTA BAND / REVENDA
    ========================================================================== */
 .cta-band{
-  position:relative; padding: 8rem 0 6rem; text-align:center; overflow:hidden;
-  background: linear-gradient(160deg, var(--blue) 0%, #1a1b5e 55%, #0d0e2e 100%);
+  position:relative; padding: 7rem 0; text-align:left; overflow:hidden;
+  background: linear-gradient(160deg, var(--bg-elevated) 0%, #121438 60%, var(--bg-soft) 100%);
+  border-top: 1px solid rgba(141,215,247,.15);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .cta-band__frost{
   position:absolute; inset:0;
-  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(141,215,247,.25), transparent 65%);
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(141,215,247,.2), transparent 65%);
   pointer-events:none;
 }
-.cta-band__inner{ position:relative; width: var(--container); margin-inline:auto; }
-.cta-band__title{ font-size: clamp(2.2rem, 5vw, 3.6rem); color:#fff; margin-top:.5rem; }
-.cta-band__text{
-  max-width: 52ch; margin: 1.5rem auto 2.4rem; color: rgba(255,255,255,.75); font-size:1.05rem;
+.cta-band__inner{
+  position:relative; width: var(--container); margin-inline:auto;
+  display:grid; grid-template-columns: 1.15fr .85fr; gap: 4rem; align-items:center;
 }
-.ice-drip{ position:absolute; left:0; right:0; bottom:-1px; line-height:0; }
-.ice-drip svg{ width:100%; height:60px; }
+.cta-band__content{ text-align:left; }
+.cta-band__title{ font-size: clamp(2rem, 4vw, 3.2rem); color:#fff; margin-top:.5rem; line-height: 1.15; }
+.cta-band__text{
+  max-width: 48ch; margin: 1.2rem 0 2rem; color: rgba(255,255,255,.78); font-size:1.05rem;
+}
+.cta-band__features{
+  display:flex; flex-direction:column; gap:.75rem; margin-bottom: 2.2rem;
+}
+.cta-band__features span{
+  display:inline-flex; align-items:center; gap:.5rem;
+  background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
+  padding:.55rem 1.1rem; border-radius:100px; font-size:.88rem; color: rgba(247,248,255,.9);
+  width: fit-content;
+}
+.cta-band__media{ display:flex; justify-content:center; }
+.revenda__banner-frame{
+  position:relative; width: min(340px, 100%); aspect-ratio: 9/16;
+  border-radius: var(--radius-md); border: 1px solid rgba(141,215,247,.25);
+  box-shadow: 0 20px 50px rgba(0,0,0,.6); overflow:hidden;
+  background: rgba(13,14,26,.8);
+  transition: transform .5s var(--ease-out);
+}
+.revenda__banner-frame:hover{
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--ice);
+}
+.revenda__banner-img{ width:100%; height:100%; object-fit:cover; }
+.revenda__badge{
+  position:absolute; top: 1rem; right: 1rem;
+  background: rgba(7,7,13,.75); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.2); color: var(--ice);
+  font-family: var(--font-display); font-size:.78rem; letter-spacing:.08em;
+  text-transform: uppercase; padding: .35rem .8rem; border-radius: 100px;
+}
+
+@media (max-width: 980px){
+  .cta-band__inner{ grid-template-columns: 1fr; gap: 3rem; text-align:center; }
+  .cta-band__content{ text-align:center; }
+  .cta-band__features{ align-items:center; }
+  .cta-band__text{ margin-inline:auto; }
+}
 
 /* ==========================================================================
    DEPOIMENTOS
