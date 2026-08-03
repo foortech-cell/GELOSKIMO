@@ -549,6 +549,7 @@ body::before{
 .footer__col h4{ font-size:.85rem; text-transform:uppercase; letter-spacing:.1em; color: var(--ice); margin-bottom:.3rem; }
 .footer__col a, .footer__col span{ font-size:.92rem; color: rgba(247,248,255,.7); }
 .footer__col a:hover{ color:#fff; }
+.footer__hours{ color: var(--ice) !important; font-weight:600; }
 .footer__bottom{
   width: var(--container); margin-inline:auto; padding-top: 1.6rem;
   display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
