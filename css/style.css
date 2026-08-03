@@ -207,6 +207,15 @@ body::before{
   font-size:1.4rem; font-family: var(--font-display);
 }
 .nav__mobile.is-open{ transform: translateY(0); }
+.nav__mobile{ overflow-y: auto; padding: 2rem 1.5rem; }
+
+/* 8 nav links no longer fit in one row below ~1240px — hand off to the burger
+   menu earlier than the general tablet breakpoint to avoid overlapping the CTA. */
+@media (max-width: 1240px){
+  .nav__links{ display:none; }
+  .nav__burger{ display:flex; }
+  .btn--nav{ display:none; }
+}
 
 /* ==========================================================================
    BUTTONS
@@ -644,14 +653,12 @@ body::before{
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 980px){
-  .nav__links{ display:none; }
-  .nav__burger{ display:flex; }
-  .btn--nav{ display:none; }
   .about__inner{ grid-template-columns:1fr; gap:2.5rem; }
   .about__media-frame{ aspect-ratio: 16/9; }
   .flavor-grid{ grid-template-columns: repeat(2, 1fr); }
   .cube-grid{ grid-template-columns: repeat(2, 1fr); }
   .uses__grid{ grid-template-columns: repeat(2, 1fr); }
+  .testimonial-grid{ grid-template-columns: repeat(2, 1fr); }
   .footer__inner{ grid-template-columns: 1fr 1fr; }
   .ice-cube--3, .ice-cube--4{ display:none; }
 }
@@ -957,6 +964,8 @@ body::before{
   .cube-grid{ grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
   .cube-card{ padding: 1.4rem 0.9rem; }
   .cube-card h3{ font-size: 1.3rem; }
+
+  .testimonial-grid{ grid-template-columns: 1fr; gap: 1rem; }
 
   .cubes__footer{ flex-direction: column; align-items: center; text-align: center; gap: 1.2rem; }
   .cubes__audience{ justify-content: center; }
