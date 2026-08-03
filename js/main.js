@@ -369,4 +369,86 @@
       }
     });
   });
+
+  /* ------------------------------------------------------------------
+     CALCULADORA DE GELO INTERATIVA
+  ------------------------------------------------------------------ */
+  const rangePessoas = document.getElementById("calcPessoasRange");
+  const rangeHoras = document.getElementById("calcHorasRange");
+  const valPessoas = document.getElementById("calcPessoasVal");
+  const valHoras = document.getElementById("calcHorasVal");
+  const resCubosKg = document.getElementById("resCubosKg");
+  const resCubosSacos = document.getElementById("resCubosSacos");
+  const resSaches = document.getElementById("resSaches");
+  const calcWappBtn = document.getElementById("calcWappBtn");
+  const presetBtns = document.querySelectorAll(".calc-btn");
+
+  let currentPreset = "churrasco";
+
+  const presetMultipliers = {
+    churrasco: { icePerPerson: 0.75, sachetsPerPerson: 0.5 },
+    festa: { icePerPerson: 1.0, sachetsPerPerson: 0.7 },
+    confraternizacao: { icePerPerson: 0.6, sachetsPerPerson: 0.4 }
+  };
+
+  function updateCalculator() {
+    if (!rangePessoas || !rangeHoras) return;
+
+    const pessoas = parseInt(rangePessoas.value, 10);
+    const horas = parseInt(rangeHoras.value, 10);
+
+    valPessoas.textContent = pessoas + (pessoas === 1 ? " pessoa" : " pessoas");
+    valHoras.textContent = horas + (horas === 1 ? " hora" : " horas");
+
+    const config = presetMultipliers[currentPreset] || presetMultipliers.churrasco;
+    const horaFactor = 1 + (horas - 4) * 0.1;
+
+    let totalKg = Math.ceil(pessoas * config.icePerPerson * Math.max(0.6, horaFactor));
+    totalKg = Math.max(5, Math.ceil(totalKg / 5) * 5);
+    const sacos5kg = Math.ceil(totalKg / 5);
+
+    let totalSaches = Math.ceil(pessoas * config.sachetsPerPerson * Math.max(0.6, horaFactor));
+    totalSaches = Math.max(5, Math.ceil(totalSaches / 5) * 5);
+
+    if (resCubosKg) resCubosKg.textContent = totalKg + " kg";
+    if (resCubosSacos) resCubosSacos.textContent = `${sacos5kg} ${sacos5kg === 1 ? "saco" : "sacos"} de 5kg`;
+    if (resSaches) resSaches.textContent = totalSaches + " sachês";
+
+    const presetNames = { churrasco: "Churrasco", festa: "Festa/Balada", confraternizacao: "Confraternização" };
+    const textMsg = `Olá! Fiz um cálculo no site da Gelo Skimó:\n\n🎉 Ocasião: ${presetNames[currentPreset]}\n👥 Convidados: ${pessoas} pessoas (${horas}h)\n🧊 Cubo de Gelo recomendado: ${totalKg}kg (${sacos5kg} sacos de 5kg)\n🥥 Gelo de Coco recomendado: ${totalSaches} sachês\n\nGostaria de fazer o pedido!`;
+
+    if (calcWappBtn) {
+      calcWappBtn.href = `https://wa.me/5541999118175?text=${encodeURIComponent(textMsg)}`;
+    }
+  }
+
+  if (rangePessoas && rangeHoras) {
+    rangePessoas.addEventListener("input", updateCalculator);
+    rangeHoras.addEventListener("input", updateCalculator);
+
+    presetBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        presetBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentPreset = btn.dataset.preset;
+        updateCalculator();
+      });
+    });
+
+    updateCalculator();
+  }
+
+  /* ------------------------------------------------------------------
+     BOTÃO FLUTUANTE DO WHATSAPP
+  ------------------------------------------------------------------ */
+  const whatsappFloat = document.getElementById("whatsappFloat");
+  if (whatsappFloat) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        whatsappFloat.classList.add("is-visible");
+      } else {
+        whatsappFloat.classList.remove("is-visible");
+      }
+    }, { passive: true });
+  }
 })();
