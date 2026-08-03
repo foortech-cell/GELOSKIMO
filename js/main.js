@@ -170,7 +170,6 @@
       gsap.to(".ice-cube--2", { x: x * 14, y: y * 14, duration: 0.6, overwrite: "auto" });
       gsap.to(".ice-cube--3", { x: x * 20, y: y * -14, duration: 0.6, overwrite: "auto" });
       gsap.to(".ice-cube--4", { x: x * -14, y: y * 18, duration: 0.6, overwrite: "auto" });
-      gsap.to("#heroLogo", { x: x * -10, y: y * -6, duration: 0.8, overwrite: "auto" });
     });
   }
 
