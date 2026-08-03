@@ -4,6 +4,11 @@
 (() => {
   "use strict";
 
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
@@ -363,8 +368,13 @@
         const target = document.querySelector(id);
         if (target) {
           e.preventDefault();
-          if (lenis) lenis.scrollTo(target, { duration: 1.3, offset: -20 });
-          else target.scrollIntoView({ behavior: "smooth" });
+          const navEl = document.getElementById("nav");
+          const navOffset = -((navEl ? navEl.offsetHeight : 80) + 16);
+          if (lenis) lenis.scrollTo(target, { duration: 1.3, offset: navOffset });
+          else {
+            const top = target.getBoundingClientRect().top + window.scrollY + navOffset;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
         }
       }
     });
@@ -405,17 +415,23 @@
 
     let totalKg = Math.ceil(pessoas * config.icePerPerson * Math.max(0.6, horaFactor));
     totalKg = Math.max(5, Math.ceil(totalKg / 5) * 5);
-    const sacos5kg = Math.ceil(totalKg / 5);
+
+    const sacos10kg = Math.floor(totalKg / 10);
+    const sacos5kg = (totalKg % 10) / 5;
+    const sacosPartes = [];
+    if (sacos10kg > 0) sacosPartes.push(`${sacos10kg} ${sacos10kg === 1 ? "saco" : "sacos"} de 10kg`);
+    if (sacos5kg > 0) sacosPartes.push(`${sacos5kg} ${sacos5kg === 1 ? "saco" : "sacos"} de 5kg`);
+    const sacosLabel = sacosPartes.join(" + ");
 
     let totalSaches = Math.ceil(pessoas * config.sachetsPerPerson * Math.max(0.6, horaFactor));
     totalSaches = Math.max(5, Math.ceil(totalSaches / 5) * 5);
 
     if (resCubosKg) resCubosKg.textContent = totalKg + " kg";
-    if (resCubosSacos) resCubosSacos.textContent = `${sacos5kg} ${sacos5kg === 1 ? "saco" : "sacos"} de 5kg`;
+    if (resCubosSacos) resCubosSacos.textContent = sacosLabel;
     if (resSaches) resSaches.textContent = totalSaches + " sachês";
 
     const presetNames = { churrasco: "Churrasco", festa: "Festa/Balada", confraternizacao: "Confraternização" };
-    const textMsg = `Olá! Fiz um cálculo no site da Gelo Skimó:\n\n🎉 Ocasião: ${presetNames[currentPreset]}\n👥 Convidados: ${pessoas} pessoas (${horas}h)\n🧊 Cubo de Gelo recomendado: ${totalKg}kg (${sacos5kg} sacos de 5kg)\n🥥 Gelo de Coco recomendado: ${totalSaches} sachês\n\nGostaria de fazer o pedido!`;
+    const textMsg = `Olá! Fiz um cálculo no site da Gelo Skimó:\n\n🎉 Ocasião: ${presetNames[currentPreset]}\n👥 Convidados: ${pessoas} pessoas (${horas}h)\n🧊 Cubo de Gelo recomendado: ${totalKg}kg (${sacosLabel})\n🥥 Gelo de Coco recomendado: ${totalSaches} sachês\n\nGostaria de fazer o pedido!`;
 
     if (calcWappBtn) {
       calcWappBtn.href = `https://wa.me/5541999118175?text=${encodeURIComponent(textMsg)}`;
