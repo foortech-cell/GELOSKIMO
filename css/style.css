@@ -450,14 +450,24 @@ body::before{
   opacity:0; transform: translateY(50px);
   will-change: transform;
 }
-.cube-card__icon{
-  width:72px; height:72px; margin:0 auto 1.3rem; display:flex; align-items:center; justify-content:center;
+.cube-card__media{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-sm);
+  background: radial-gradient(circle at 50% 50%, rgba(141,215,247,.12), transparent 70%);
+  overflow: hidden;
+  padding: .5rem;
 }
-.cube-card__icon span{
-  display:block; width:52px; height:52px; border-radius:14px;
-  background: linear-gradient(135deg, rgba(141,215,247,.55), rgba(255,255,255,.15));
-  border: 1px solid rgba(255,255,255,.4);
-  box-shadow: 0 16px 30px -10px rgba(46,47,146,.5), inset 0 0 16px rgba(255,255,255,.25);
+.cube-card__img{
+  width: 100%; height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 20px rgba(0,0,0,.6));
+  transition: transform .4s var(--ease-out);
+}
+.cube-card:hover .cube-card__img{
+  transform: scale(1.08) translateY(-4px);
 }
 .cube-card h3{ font-size:1.6rem; color: var(--ice); margin-bottom:.5rem; }
 .cube-card p{ font-size:.88rem; color: rgba(247,248,255,.6); }
