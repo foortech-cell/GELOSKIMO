@@ -467,4 +467,166 @@
       }
     }, { passive: true });
   }
+
+  /* ------------------------------------------------------------------
+     MODAL DE RECEITAS DE DRINKS
+  ------------------------------------------------------------------ */
+  const recipeModal = document.getElementById("recipeModal");
+  const modalOverlay = document.getElementById("recipeModalOverlay");
+  const modalClose = document.getElementById("recipeModalClose");
+
+  const recipeData = {
+    coco: {
+      badge: "Especial Clássico",
+      title: "Caipira Gourmet de Coco",
+      desc: "O drink perfeito para refrescar o final de semana com o verdadeiro sabor do coco cremoso.",
+      ingredients: [
+        "1 sachê de Gelo de Coco Skimó (200ml)",
+        "50ml de Cachaça artesanal ou Vodka",
+        "1 colher de sopa de leite condensado (opcional)",
+        "Folhas de hortelã para decorar"
+      ],
+      steps: [
+        "Corte a ponta do sachê de Gelo de Coco Skimó e adicione direto no copo.",
+        "Adicione os 50ml de cachaça ou vodka de sua preferência.",
+        "Misture suavemente com uma colher bailarina conforme o gelo derrete.",
+        "Decore com folhas de hortelã e sirva bem gelado!"
+      ]
+    },
+    maca: {
+      badge: "Especial Tropical",
+      title: "Tropical Gin & Tônica de Maçã Verde",
+      desc: "Um drink vibrante, azedinho na medida certa e ultra refrescante para festas.",
+      ingredients: [
+        "1 sachê de Gelo de Coco Sabor Maçã Verde Skimó",
+        "50ml de Gin da sua preferência",
+        "150ml de Água Tônica ou Energético de Maçã Verde",
+        "Fatias finas de maçã verde para decorar"
+      ],
+      steps: [
+        "Coloque o sachê de Maçã Verde Skimó em uma taça grande de Gin.",
+        "Sirva os 50ml de Gin sobre o gelo saborizado.",
+        "Complete suavemente com a água tônica ou energético.",
+        "Finalize com fatias de maçã verde fresca na lateral da taça."
+      ]
+    },
+    melancia: {
+      badge: "Especial Verão",
+      title: "Summer Splash Melancia & Vodka",
+      desc: "Doce, suculento e leve. O drink oficial das tardes ensolaradas e encontros com amigos.",
+      ingredients: [
+        "1 sachê de Gelo de Coco Sabor Melancia Skimó",
+        "50ml de Vodka trincando de gelada",
+        "100ml de Espumante Brut ou Refrigerante de Limão",
+        "Pedacinhos de melancia ou morango frescos"
+      ],
+      steps: [
+        "Sirva o sachê de Melancia Skimó diretamente em um copo alto.",
+        "Adicione a dose de vodka e complete com o espumante ou refrigerante de limão.",
+        "Mexa delicadamente para misturar os aromas de fruta.",
+        "Sirva com canudo e frutas frescas."
+      ]
+    },
+    maracuja: {
+      badge: "Especial Azedinho",
+      title: "Maracujá Fizz com Gin & Campari",
+      desc: "Combinação marcante do amargor suave com o azedinho tropical do maracujá.",
+      ingredients: [
+        "1 sachê de Gelo de Coco Sabor Maracujá Skimó",
+        "40ml de Gin ou Cachaça",
+        "15ml de Campari",
+        "100ml de Água com Gás ou Tônica"
+      ],
+      steps: [
+        "Adicione o sachê de Maracujá Skimó em um copo baixo de whisky ou taça.",
+        "Despeje o Gin e o Campari sobre o gelo.",
+        "Complete com água com gás para criar as bolhas e a espuma aromática.",
+        "Misture levemente e aproveite!"
+      ]
+    },
+    morango: {
+      badge: "Especial Viciante",
+      title: "Morango Sensation com Red Bull",
+      desc: "Doce, vibrante e cheio de energia para curtir a noite toda.",
+      ingredients: [
+        "1 sachê de Gelo de Coco Sabor Morango Skimó",
+        "50ml de Vodka ou Gin",
+        "1 lata de Energético (Red Bull / Monster)",
+        "Morangos frescos picados"
+      ],
+      steps: [
+        "Insira o sachê de Morango Skimó em uma taça grande.",
+        "Adicione os 50ml de vodka ou gin.",
+        "Complete com o seu energético favorito sabor morango ou tradicional.",
+        "Decore a borda com um morango inteiro."
+      ]
+    }
+  };
+
+  function openRecipeModal(flavorKey) {
+    const data = recipeData[flavorKey] || recipeData.coco;
+    document.getElementById("recBadge").textContent = data.badge;
+    document.getElementById("recTitle").textContent = data.title;
+    document.getElementById("recDesc").textContent = data.desc;
+
+    const ingList = document.getElementById("recIngredients");
+    ingList.innerHTML = data.ingredients.map(i => `<li>${i}</li>`).join("");
+
+    const stepList = document.getElementById("recSteps");
+    stepList.innerHTML = data.steps.map(s => `<li>${s}</li>`).join("");
+
+    const wappMsg = `Olá! Quero fazer a receita *${data.title}* e preciso encomendar sachês do sabor ${flavorKey.toUpperCase()}!`;
+    document.getElementById("recWappBtn").href = `https://wa.me/5541999118175?text=${encodeURIComponent(wappMsg)}`;
+
+    if (recipeModal) {
+      recipeModal.classList.add("is-open");
+      recipeModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+  }
+
+  function closeRecipeModal() {
+    if (recipeModal) {
+      recipeModal.classList.remove("is-open");
+      recipeModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+  }
+
+  document.querySelectorAll(".btn-recipe").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const flavor = btn.dataset.recipe;
+      openRecipeModal(flavor);
+    });
+  });
+
+  if (modalOverlay) modalOverlay.addEventListener("click", closeRecipeModal);
+  if (modalClose) modalClose.addEventListener("click", closeRecipeModal);
+
+  /* ------------------------------------------------------------------
+     FORMULÁRIO DE PRÉ-CADASTRO B2B (Enviar para WhatsApp)
+  ------------------------------------------------------------------ */
+  const b2bForm = document.getElementById("b2bForm");
+  if (b2bForm) {
+    b2bForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nome = document.getElementById("b2bNome").value.trim();
+      const cnpj = document.getElementById("b2bCnpj").value.trim();
+      const segmento = document.getElementById("b2bSegmento").value;
+      const cidade = document.getElementById("b2bCidade").value.trim();
+      const interesse = document.getElementById("b2bInteresse").value;
+
+      const leadMsg = `🏢 *SOLICITAÇÃO DE PARCERIA B2B — GELO SKIMÓ*\n\n` +
+        `👤 *Empresa/Nome:* ${nome}\n` +
+        `📜 *CNPJ/CPF:* ${cnpj}\n` +
+        `🏪 *Segmento:* ${segmento}\n` +
+        `📍 *Cidade/Bairro:* ${cidade}\n` +
+        `🎯 *Interesse:* ${interesse}\n\n` +
+        `Gostaria de receber o contato da equipe comercial para dar andamento!`;
+
+      const wappUrl = `https://wa.me/5541999118175?text=${encodeURIComponent(leadMsg)}`;
+      window.open(wappUrl, "_blank");
+    });
+  }
 })();

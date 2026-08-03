@@ -78,9 +78,11 @@
     <nav class="nav__links">
       <a href="#sabores" data-cursor="link">Sabores</a>
       <a href="#calculadora" data-cursor="link">Calculadora</a>
-      <a href="#cubos" data-cursor="link">Cubos de Gelo</a>
+      <a href="#cubos" data-cursor="link">Cubos</a>
+      <a href="#atendimento" data-cursor="link">Atendimento</a>
       <a href="#empresas" data-cursor="link">Empresas</a>
-      <a href="#revenda" data-cursor="link">Revenda</a>
+      <a href="#parceria" data-cursor="link">Parceria</a>
+      <a href="#faq" data-cursor="link">FAQ</a>
       <a href="#contato" data-cursor="link">Contato</a>
     </nav>
     <a href="https://wa.me/5541999118175?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Gelo%20Skim%C3%B3." target="_blank" rel="noopener" class="btn btn--pill btn--nav" data-cursor="link">
@@ -94,9 +96,11 @@
 <div class="nav__mobile" id="navMobile">
   <a href="#sabores">Sabores</a>
   <a href="#calculadora">Calculadora</a>
-  <a href="#cubos">Cubos de Gelo</a>
+  <a href="#cubos">Cubos</a>
+  <a href="#atendimento">Atendimento</a>
   <a href="#empresas">Empresas</a>
-  <a href="#revenda">Revenda</a>
+  <a href="#parceria">Parceria</a>
+  <a href="#faq">FAQ</a>
   <a href="#contato">Contato</a>
   <a href="https://wa.me/5541999118175" target="_blank" rel="noopener" class="btn btn--pill">Peça o seu</a>
 </div>
@@ -221,7 +225,10 @@
         <h3>Coco</h3>
         <p>O clássico. Puro sabor de coco fresquinho.</p>
         <div class="flavor-card__pairing"><span>🍹</span> Ideal com: Whisky, Rum e Caipirinha</div>
-        <span class="flavor-card__tag">190g · 200ml</span>
+        <div class="flavor-card__actions">
+          <button type="button" class="btn-recipe" data-recipe="coco">🍹 Ver Receita</button>
+          <span class="flavor-card__tag">190g · 200ml</span>
+        </div>
       </article>
 
       <article class="flavor-card" style="--flavor-color:#5fbf3e; --flavor-color-dark:#2c6b1a;" data-tilt>
@@ -231,7 +238,10 @@
         <h3>Maçã Verde</h3>
         <p>Azedinha na medida, refrescância total.</p>
         <div class="flavor-card__pairing"><span>🍸</span> Perfeito com: Gin & Tônica e Energético</div>
-        <span class="flavor-card__tag">190g · 200ml</span>
+        <div class="flavor-card__actions">
+          <button type="button" class="btn-recipe" data-recipe="maca">🍸 Ver Receita</button>
+          <span class="flavor-card__tag">190g · 200ml</span>
+        </div>
       </article>
 
       <article class="flavor-card" style="--flavor-color:#e8384a; --flavor-color-dark:#7a1420;" data-tilt>
@@ -241,7 +251,10 @@
         <h3>Melancia</h3>
         <p>Suculenta e docinha, sabor de verão.</p>
         <div class="flavor-card__pairing"><span>🥂</span> Excelente com: Vodka e Espumante</div>
-        <span class="flavor-card__tag">190g · 200ml</span>
+        <div class="flavor-card__actions">
+          <button type="button" class="btn-recipe" data-recipe="melancia">🥂 Ver Receita</button>
+          <span class="flavor-card__tag">190g · 200ml</span>
+        </div>
       </article>
 
       <article class="flavor-card" style="--flavor-color:#f0ac2e; --flavor-color-dark:#8a5a0d;" data-tilt>
@@ -251,7 +264,10 @@
         <h3>Maracujá</h3>
         <p>Azedinho tropical, combina com tudo.</p>
         <div class="flavor-card__pairing"><span>🍹</span> Combina com: Gin, Campari e Cachaça</div>
-        <span class="flavor-card__tag">190g · 200ml</span>
+        <div class="flavor-card__actions">
+          <button type="button" class="btn-recipe" data-recipe="maracuja">🍹 Ver Receita</button>
+          <span class="flavor-card__tag">190g · 200ml</span>
+        </div>
       </article>
 
       <article class="flavor-card" style="--flavor-color:#e31c4d; --flavor-color-dark:#7a0d29;" data-tilt>
@@ -261,7 +277,10 @@
         <h3>Morango</h3>
         <p>Doce, vibrante e viciante.</p>
         <div class="flavor-card__pairing"><span>🍓</span> Viciante com: Vodka, Gin e Drinks Frutados</div>
-        <span class="flavor-card__tag">190g · 200ml</span>
+        <div class="flavor-card__actions">
+          <button type="button" class="btn-recipe" data-recipe="morango">🍓 Ver Receita</button>
+          <span class="flavor-card__tag">190g · 200ml</span>
+        </div>
       </article>
 
     </div>
@@ -417,6 +436,68 @@
     </div>
   </section>
 
+  <!-- ============ ÁREA DE ATENDIMENTO / SEO LOCAL ============ -->
+  <section class="delivery" id="atendimento">
+    <div class="delivery__inner">
+      <div class="delivery__head">
+        <p class="section-eyebrow" data-reveal>Frota e Logística Própria</p>
+        <h2 class="section-title section-title--center" data-reveal>Onde a Gelo Skimó <span class="text-outline">Entrega</span></h2>
+        <p class="delivery__subtitle" data-reveal>Entregamos com veículos e motoristas próprios, garantindo gelo trincando e pontualidade total em Curitiba e Região Metropolitana.</p>
+      </div>
+
+      <div class="delivery__grid">
+        <div class="delivery-card" data-reveal>
+          <div class="delivery-card__icon">🏭</div>
+          <h3>Fazenda Rio Grande</h3>
+          <span class="delivery-card__badge">Sede da Empresa</span>
+          <p>Atendimento prioritário e entregas expressas para eventos, residências e comércios locais.</p>
+        </div>
+
+        <div class="delivery-card" data-reveal>
+          <div class="delivery-card__icon">🏙️</div>
+          <h3>Curitiba</h3>
+          <span class="delivery-card__badge">Atendimento Diário</span>
+          <div class="delivery-chips">
+            <span>Batel</span><span>Boqueirão</span><span>Pinheirinho</span><span>Portão</span><span>Centro</span><span>CIC</span><span>Água Verde</span><span>Santa Felicidade</span>
+          </div>
+        </div>
+
+        <div class="delivery-card" data-reveal>
+          <div class="delivery-card__icon">🚚</div>
+          <h3>Região Metropolitana</h3>
+          <span class="delivery-card__badge">Rota Comercial</span>
+          <div class="delivery-chips">
+            <span>São José dos Pinhais</span><span>Araucária</span><span>Pinhais</span><span>Campo Largo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="delivery__trust" data-reveal>
+        <div class="trust-item">
+          <span class="trust-icon">⚡</span>
+          <div>
+            <h4>Entrega Expressa</h4>
+            <p>Atendimento 24h para emergências em festas e comércios.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🚚</span>
+          <div>
+            <h4>Frota 100% Própria</h4>
+            <p>Sem intermediação ou terceirizados. Cuidado total no transporte.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">☀️</span>
+          <div>
+            <h4>Produção Sustentável</h4>
+            <p>Fabricado com 100% de energia solar limpa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ COMODATO / MANUTENÇÃO TÉCNICA ============ -->
   <section class="equip-band" id="empresas">
     <div class="equip-band__frost"></div>
@@ -519,6 +600,126 @@
     </div>
   </section>
 
+  <!-- ============ PRÉ-CADASTRO B2B / PARCERIA ============ -->
+  <section class="partner-form" id="parceria">
+    <div class="partner-form__inner">
+      <div class="partner-form__head">
+        <p class="section-eyebrow section-eyebrow--light" data-reveal>Revenda &amp; Comodato</p>
+        <h2 class="section-title section-title--center" data-reveal>Seja um <span class="text-outline text-outline--light">Parceiro Comercial</span></h2>
+        <p class="partner-form__subtitle" data-reveal>Preencha os dados da sua empresa para solicitar o Comodato de Freezer ou a Tabela de Preços em Atacado.</p>
+      </div>
+
+      <form class="b2b-form" id="b2bForm" data-reveal>
+        <div class="b2b-form__grid">
+          <div class="form-group">
+            <label for="b2bNome">Nome / Razão Social *</label>
+            <input type="text" id="b2bNome" placeholder="Ex: Conveniência Santos" required>
+          </div>
+
+          <div class="form-group">
+            <label for="b2bCnpj">CNPJ ou CPF *</label>
+            <input type="text" id="b2bCnpj" placeholder="00.000.000/0001-00" required>
+          </div>
+
+          <div class="form-group">
+            <label for="b2bSegmento">Segmento do Comércio *</label>
+            <select id="b2bSegmento" required>
+              <option value="Mercado / Supermercado">Mercado / Supermercado</option>
+              <option value="Açougue / Casa de Carnes">Açougue / Casa de Carnes</option>
+              <option value="Padaria / Confeitaria">Padaria / Confeitaria</option>
+              <option value="Conveniência / Posto">Conveniência / Posto</option>
+              <option value="Bar / Pub / Balada">Bar / Pub / Balada</option>
+              <option value="Distribuidora de Bebidas">Distribuidora de Bebidas</option>
+              <option value="Outros">Outros</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="b2bCidade">Cidade / Bairro *</label>
+            <input type="text" id="b2bCidade" placeholder="Ex: Fazenda Rio Grande - Centro" required>
+          </div>
+
+          <div class="form-group form-group--full">
+            <label for="b2bInteresse">Interesse Principal *</label>
+            <select id="b2bInteresse" required>
+              <option value="Comodato de Freezer Compacto de Vitrine">Comodato de Freezer Compacto de Vitrine (Gelo de Coco)</option>
+              <option value="Comodato de Máquina / Freezer Industrial">Comodato de Máquina / Freezer Industrial (Cubos)</option>
+              <option value="Fornecimento em Atacado para Revenda">Fornecimento em Atacado para Revenda</option>
+              <option value="Manutenção Técnica e Higienização">Manutenção Técnica e Laudo de Higienização</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--large btn--full btn--magnetic" data-cursor="link">
+          <span>Enviar Solicitação via WhatsApp</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ PERGUNTAS FREQUENTES (FAQ) ============ -->
+  <section class="faq" id="faq">
+    <div class="faq__inner">
+      <div class="faq__head">
+        <p class="section-eyebrow" data-reveal>Tire suas dúvidas</p>
+        <h2 class="section-title section-title--center" data-reveal>Perguntas <span class="text-outline">Frequentes</span></h2>
+      </div>
+
+      <div class="faq-accordion" data-reveal>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Qual a região atendida para entregas de gelo?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Atendemos Fazenda Rio Grande, Curitiba (todos os bairros) e região metropolitana (São José dos Pinhais, Araucária, Pinhais, Campo Largo, entre outros) com veículo e motorista próprios da empresa, garantindo rapidez e produto conservado.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Como funciona o comodato de freezers e máquinas de gelo para empresas?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Disponibilizamos o equipamento (freezer compacto de vitrine para sachês ou freezers maiores para sacos de cubo) sem custo de aquisição. O contrato possui cláusula de exclusividade para produtos Gelo Skimó, e nos encarregamos de toda a instalação, manutenção preventiva, reposição de peças e laudo técnico de higienização válido por 6 meses.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>O gelo é potável e possui laudo sanitário?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Sim! Todo o nosso gelo é produzido com água 100% filtrada e potável, seguindo rigorosos padrões de higiene industrial e com laudo técnico sanitário atualizado.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Existe pedido mínimo para entregas?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Atendemos desde pequenos pedidos para festas residenciais até cargas em atacado para comércios e grandes eventos. Para consultar taxas de entrega e condições especiais acima de 20 unidades, entre em contato pelo nosso WhatsApp.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Vocês fornecem para pessoas físicas e festas particulares?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Com certeza! Atendemos aniversários, casamentos, churrascos e confraternizações familiares. Você pode inclusive usar a nossa Calculadora de Gelo no site para saber a quantidade exata para o seu evento!</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CONTATO / FOOTER ============ -->
   <footer class="footer" id="contato">
     <div class="footer__inner">
@@ -565,6 +766,36 @@
   </svg>
   <span class="whatsapp-float__tooltip">Pedir no WhatsApp</span>
 </a>
+
+<!-- ============ MODAL DE RECEITAS DE DRINKS ============ -->
+<div class="recipe-modal" id="recipeModal" aria-hidden="true">
+  <div class="recipe-modal__overlay" id="recipeModalOverlay"></div>
+  <div class="recipe-modal__card">
+    <button type="button" class="recipe-modal__close" id="recipeModalClose" aria-label="Fechar modal">✕</button>
+    <div class="recipe-modal__body">
+      <span class="recipe-modal__badge" id="recBadge">Receita Especial</span>
+      <h3 class="recipe-modal__title" id="recTitle">Nome do Drink</h3>
+      <p class="recipe-modal__desc" id="recDesc">Descrição do drink.</p>
+
+      <div class="recipe-modal__grid">
+        <div class="recipe-modal__col">
+          <h4>📋 Ingredientes</h4>
+          <ul id="recIngredients"></ul>
+        </div>
+        <div class="recipe-modal__col">
+          <h4>🍹 Modo de Preparo</h4>
+          <ol id="recSteps"></ol>
+        </div>
+      </div>
+
+      <div class="recipe-modal__footer">
+        <a href="#" id="recWappBtn" target="_blank" rel="noopener" class="btn btn--primary btn--full btn--magnetic">
+          <span>Pedir sachê para essa receita</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
