@@ -389,13 +389,18 @@ body::before{
 }
 .flavor-card:hover{ border-color: color-mix(in srgb, var(--flavor-color) 60%, transparent); }
 .flavor-card:hover::before{ opacity:1; }
-.flavor-card__icon{
-  width:72px; height:72px; margin: 0 auto 1.2rem; border-radius:50%;
-  background: color-mix(in srgb, var(--flavor-color) 18%, var(--bg-soft));
+.flavor-card__media{
+  width:100%; height: 160px; margin-bottom: 1.2rem;
   display:flex; align-items:center; justify-content:center;
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--flavor-color) 40%, transparent);
+  position:relative; border-radius: var(--radius-sm);
+  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--flavor-color) 20%, transparent), transparent 75%);
 }
-.flavor-card__icon svg{ width:38px; height:38px; }
+.flavor-card__img{
+  max-width: 100%; max-height: 150px; object-fit: contain;
+  filter: drop-shadow(0 12px 20px rgba(0,0,0,.55));
+  transition: transform .5s var(--ease-out);
+}
+.flavor-card:hover .flavor-card__img{ transform: translateY(-8px) scale(1.08); }
 .flavor-card h3{ font-size:1.25rem; color:#fff; margin-bottom:.5rem; }
 .flavor-card p{ font-size:.88rem; color: rgba(247,248,255,.6); min-height:2.6em; }
 .flavor-card__tag{
