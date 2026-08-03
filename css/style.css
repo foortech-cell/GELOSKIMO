@@ -509,6 +509,26 @@ body::before{
 .ice-drip svg{ width:100%; height:60px; }
 
 /* ==========================================================================
+   DEPOIMENTOS
+   ========================================================================== */
+.testimonials{ padding: 7rem 0; background: var(--bg-soft); }
+.testimonials__inner{ width: var(--container); margin-inline:auto; text-align:center; }
+.testimonials .section-eyebrow{ justify-content:center; }
+.testimonial-grid{
+  margin-top: 3rem; display:grid; grid-template-columns: repeat(3, 1fr); gap:1.4rem;
+  text-align:left;
+}
+.testimonial-card{
+  background: var(--bg-elevated); border:1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius-md); padding: 1.8rem;
+  transition: transform .4s var(--ease-out), border-color .4s;
+}
+.testimonial-card:hover{ transform: translateY(-6px); border-color: rgba(141,215,247,.3); }
+.testimonial-card__stars{ color: var(--flavor-maracuja); letter-spacing:.15em; margin-bottom:.9rem; font-size:.95rem; }
+.testimonial-card p{ font-size:.88rem; line-height:1.55; color: rgba(247,248,255,.78); margin-bottom:1.1rem; }
+.testimonial-card__author{ font-family: var(--font-display); font-size:.82rem; color: var(--ice); }
+
+/* ==========================================================================
    FOOTER
    ========================================================================== */
 .footer{ background: var(--bg); padding: 4.5rem 0 2rem; }
