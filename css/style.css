@@ -927,10 +927,64 @@ body::before{
   display: flex; flex-direction: column; gap: .5rem;
 }
 
+/* ==========================================================================
+   REFATORAÇÃO COMPLETA DE RESPONSIVIDADE MOBILE
+   ========================================================================== */
 @media (max-width: 860px){
+  .calculator__card{ grid-template-columns: 1fr; gap: 2rem; padding: 1.8rem; }
   .delivery__grid, .delivery__trust{ grid-template-columns: 1fr; gap: 1.2rem; }
   .b2b-form__grid{ grid-template-columns: 1fr; }
   .recipe-modal__grid{ grid-template-columns: 1fr; gap: 1.2rem; }
   .b2b-form, .recipe-modal__card{ padding: 1.8rem; }
+}
+
+@media (max-width: 650px){
+  .hero{ padding: 7rem 0 3.5rem; }
+  .hero__title{ font-size: clamp(2.4rem, 10vw, 3.4rem); }
+  .hero__subtitle{ font-size: 0.95rem; margin-top: 1rem; }
+
+  .about, .flavors, .calculator, .uses, .equip-band, .delivery, .partner-form, .faq, .testimonials{
+    padding: 4rem 0;
+  }
+
+  .flavor-grid{ grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .flavor-card{ padding: 1.4rem 0.8rem; }
+  .flavor-card h3{ font-size: 1.2rem; }
+  .flavor-card p{ font-size: 0.8rem; line-height: 1.3; }
+  .flavor-card__pairing{ font-size: 0.7rem; padding: 0.35rem 0.45rem; flex-wrap: wrap; }
+  .btn-recipe{ font-size: 0.75rem; padding: 0.4rem 0.6rem; }
+
+  .cube-grid{ grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .cube-card{ padding: 1.4rem 0.9rem; }
+  .cube-card h3{ font-size: 1.3rem; }
+
+  .cubes__footer{ flex-direction: column; align-items: center; text-align: center; gap: 1.2rem; }
+  .cubes__audience{ justify-content: center; }
+
+  .delivery-card{ padding: 1.4rem; }
+  .trust-item{ flex-direction: row; text-align: left; }
+
+  .b2b-form{ padding: 1.5rem 1.2rem; margin-top: 2rem; }
+  .form-group input, .form-group select{ padding: 0.7rem 0.8rem; font-size: 0.9rem; }
+
+  .faq-question{ padding: 1.1rem 1.2rem; font-size: 0.95rem; }
+  .faq-answer{ padding: 0 1.2rem 1.2rem; font-size: 0.88rem; }
+
+  .recipe-modal{ padding: 1rem; }
+  .recipe-modal__card{
+    padding: 1.6rem 1.2rem;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  .recipe-modal__title{ font-size: 1.4rem; }
+  .recipe-modal__desc{ font-size: 0.88rem; margin-bottom: 1.2rem; }
+
+  .whatsapp-float{ bottom: 18px; right: 18px; width: 54px; height: 54px; }
+  .whatsapp-float svg{ width: 26px; height: 26px; }
+}
+
+@media (max-width: 400px){
+  .flavor-grid{ grid-template-columns: 1fr; }
+  .cube-grid{ grid-template-columns: 1fr; }
 }
 
