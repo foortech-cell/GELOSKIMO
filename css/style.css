@@ -333,6 +333,14 @@ body::before{
   font-family: var(--font-display); font-size:.95rem; color: var(--ice);
 }
 .about__text{ margin-top:1.4rem; color: rgba(247,248,255,.72); font-size:1.05rem; max-width: 46ch; }
+.about__eco-badge{
+  display:inline-flex; align-items:center; gap:.7rem; margin-top:1.6rem;
+  background: rgba(141,215,247,.08); border:1px solid rgba(141,215,247,.25);
+  padding: .8rem 1.3rem; border-radius:100px; max-width: 46ch;
+}
+.about__eco-icon{ font-size:1.3rem; flex:none; }
+.about__eco-badge span:last-child{ font-size:.88rem; color: rgba(247,248,255,.8); line-height:1.4; }
+.about__eco-badge strong{ color: var(--ice); }
 .about__stats{ display:flex; gap: 2.4rem; margin-top: 2.6rem; flex-wrap:wrap; }
 .stat{ display:flex; flex-direction:column; }
 .stat__num, .stat__suffix{ font-family: var(--font-display); font-size:2.6rem; color:#fff; display:inline-block; }
@@ -450,6 +458,32 @@ body::before{
 .use-card__num{ font-family: var(--font-display); font-size:.85rem; color: var(--red); margin-bottom:1.2rem; }
 .use-card h3{ font-size:1.15rem; color:#fff; margin-bottom:.6rem; }
 .use-card p{ font-size:.9rem; color: rgba(247,248,255,.6); }
+
+/* ==========================================================================
+   EQUIP BAND / COMODATO & MANUTENÇÃO
+   ========================================================================== */
+.equip-band{
+  position:relative; padding: 7rem 0 6rem; text-align:center; overflow:hidden;
+  background: linear-gradient(160deg, #0d3a52 0%, #0d2035 55%, var(--bg) 100%);
+}
+.equip-band__frost{
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(46,47,146,.3), transparent 65%);
+  pointer-events:none;
+}
+.equip-band__inner{ position:relative; width: var(--container); margin-inline:auto; }
+.equip-band__title{ font-size: clamp(2rem, 4.6vw, 3.4rem); color:#fff; margin-top:.5rem; }
+.equip-band__text{
+  max-width: 56ch; margin: 1.5rem auto 2rem; color: rgba(255,255,255,.75); font-size:1.05rem;
+}
+.equip-band__features{
+  display:flex; justify-content:center; flex-wrap:wrap; gap:.9rem;
+  margin-bottom: 2.4rem;
+}
+.equip-band__features span{
+  background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14);
+  padding:.6rem 1.2rem; border-radius:100px; font-size:.88rem; color: rgba(247,248,255,.85);
+}
 
 /* ==========================================================================
    CTA BAND / REVENDA

@@ -180,7 +180,7 @@
   (function snow() {
     const canvas = document.getElementById("snowCanvas");
     const ctx = canvas.getContext("2d");
-    let w, h, flakes;
+    let w, h, flakes, visible = true, running = false;
 
     function resize() {
       w = canvas.width = canvas.offsetWidth;
@@ -199,6 +199,7 @@
       }));
     }
     function draw() {
+      if (!visible) { running = false; return; }
       ctx.clearRect(0, 0, w, h);
       ctx.fillStyle = "#ffffff";
       flakes.forEach((f) => {
@@ -213,9 +214,23 @@
       ctx.globalAlpha = 1;
       requestAnimationFrame(draw);
     }
+    function start() {
+      if (running || prefersReduced || !visible) return;
+      running = true;
+      draw();
+    }
     window.addEventListener("resize", resize);
     init();
-    if (!prefersReduced) draw();
+    if (!prefersReduced) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          visible = entries[0].isIntersecting;
+          if (visible) start();
+        },
+        { threshold: 0 },
+      );
+      observer.observe(canvas);
+    }
   })();
 
   /* ------------------------------------------------------------------
